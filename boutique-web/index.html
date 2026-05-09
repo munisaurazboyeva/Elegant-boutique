@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boutique - Ayollar Kiyimlari Do'koni</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <h1>Elegant <span>Boutique</span></h1>
+                <p>Ayollar kiyimlari zaxirasini boshqarish tizimi</p>
+            </div>
+            <div class="header-stats">
+                <div class="stat-card">
+                    <span id="total-items">0</span>
+                    <label>Jami mahsulot</label>
+                </div>
+                <div class="stat-card">
+                    <span id="total-sales">0</span>
+                    <label>Sotilganlar</label>
+                </div>
+                <div class="stat-card" style="background: var(--accent)">
+                    <span id="total-revenue">0 so'm</span>
+                    <label>Jami tushum</label>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="form-section">
+                <div class="card">
+                    <h2>Yangi mahsulot qo'shish</h2>
+                    <form id="clothing-form">
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label for="brand">Brend nomi</label>
+                                <input type="text" id="brand" placeholder="Gucci, Zara..." required>
+                            </div>
+                            <div class="input-group">
+                                <label for="name">Kiyim nomi</label>
+                                <input type="text" id="name" placeholder="Klassik kostyum" required>
+                            </div>
+                        </div>
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label for="price">Narxi (so'm)</label>
+                                <input type="number" id="price" placeholder="150000" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="size">Razmeri</label>
+                                <select id="size">
+                                    <option value="XS">XS</option>
+                                    <option value="S">S</option>
+                                    <option value="M" selected>M</option>
+                                    <option value="L">L</option>
+                                    <option value="XL">XL</option>
+                                    <option value="XXL">XXL</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="input-row">
+                            <div class="input-group">
+                                <label for="color">Rangi</label>
+                                <input type="text" id="color" placeholder="Pushti" required>
+                            </div>
+                            <div class="input-group">
+                                <label for="quantity">Soni</label>
+                                <input type="number" id="quantity" placeholder="20" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-primary">Bazaga qo'shish</button>
+                    </form>
+                    <button id="add-sample-data" class="btn-secondary">Namuna ma'lumotlarni kiritish</button>
+                </div>
+            </section>
+
+            <section class="table-section">
+                <div id="low-stock-alert" class="alert-container"></div>
+                <div class="card table-card">
+                    <div class="table-header">
+                        <h2>Mahsulotlar jadvali</h2>
+                        <div class="search-box">
+                            <input type="text" id="search" placeholder="Qidirish...">
+                        </div>
+                    </div>
+                    <div class="table-container">
+                        <table id="inventory-table">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Brend</th>
+                                    <th>Nomi</th>
+                                    <th>Narxi</th>
+                                    <th>Razmeri</th>
+                                    <th>Rangi</th>
+                                    <th>Kelgan sana</th>
+                                    <th>Jami</th>
+                                    <th>Sotildi</th>
+                                    <th>Qoldi</th>
+                                    <th>Tushum</th>
+                                    <th>Amallar</th>
+                                </tr>
+                            </thead>
+                            <tbody id="inventory-body">
+                                <!-- JS orqali to'ldiriladi -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="toast" class="toast">Xabar!</div>
+
+    <!-- Sotuv Modali -->
+    <div id="sell-modal" class="modal">
+        <div class="modal-content">
+            <h2 id="modal-item-name">Mahsulot nomi</h2>
+            <p id="modal-item-price">Donasi: 0 so'm</p>
+            <div class="input-group">
+                <label for="sell-qty">Sotiladigan miqdor:</label>
+                <input type="number" id="sell-qty" value="1" min="1">
+            </div>
+            <div class="modal-total">
+                <span>Jami summa:</span>
+                <strong id="modal-total-price">0 so'm</strong>
+            </div>
+            <div class="modal-actions">
+                <button id="confirm-sell" class="btn-primary">Sotuvni tasdiqlash</button>
+                <button id="cancel-sell" class="btn-secondary">Bekor qilish</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
